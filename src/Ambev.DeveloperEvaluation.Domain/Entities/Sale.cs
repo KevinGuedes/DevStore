@@ -11,62 +11,57 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
 public class Sale : BaseEntity
 {
     /// <summary>
-    /// Gets the sale number.
+    /// Gets or sets the sale number.
     /// </summary>
     public long Number { get; set; }
 
     /// <summary>
-    /// Gets the date when the sale was made.
+    /// Gets or sets the date when the sale was made.
     /// </summary>
     public DateTime Date { get; set; }
 
     /// <summary>
-    /// Gets the customer ID.
+    /// Gets or sets the customer ID.
     /// </summary>
     public Guid CustomerId { get; set; }
 
     /// <summary>
-    /// Gets the customer name.
+    /// Gets or sets the customer name.
     /// </summary>
     public string CustomerName { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the customer email.
+    /// Gets or sets the customer email.
     /// </summary>
     public string CustomerEmail { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the total sale amount.
-    /// </summary>
-    public decimal TotalAmount { get; set; }
-
-    /// <summary>
-    /// Gets the branch ID.
+    /// Gets or sets the branch ID.
     /// </summary>
     public Guid BranchId { get; set; }
 
     /// <summary>
-    /// Gets the branch name.
+    /// Gets or sets the branch name.
     /// </summary>
     public string BranchName { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the list of products in the sale.
+    /// Gets or sets the list of products in the sale.
     /// </summary>
     public List<SaleItem> Items { get; set; } = [];
 
     /// <summary>
-    /// Gets whether the sale is cancelled or not cancelled.
+    /// Gets or sets whether the sale is cancelled or not cancelled.
     /// </summary>
     public bool IsCancelled { get; set; }
 
     /// <summary>
-    /// Gets the date and time when the sale was created.
+    /// Gets or sets the date and time when the sale was created.
     /// </summary>
     public DateTime CreatedAt { get; set; }
 
     /// <summary>
-    /// Gets the date and time of the last update to the sale's information.
+    /// Gets or sets the date and time of the last update to the sale's information.
     /// </summary>
     public DateTime? UpdatedAt { get; set; }
 
@@ -80,9 +75,9 @@ public class Sale : BaseEntity
     }
 
     /// <summary>
-    /// Generates a random sale number.
+    /// Generates a unique sale number.
     /// </summary>
-    /// <returns>A random sale number</returns>
+    /// <returns>A unique sale number</returns>
     private static long GenerateSaleNumber()
         => new Random().NextInt64();
 

@@ -11,34 +11,39 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
 public class SaleItem : BaseEntity
 {
     /// <summary>
-    /// Gets the sale ID.
+    /// Gets or sets the sale ID.
     /// </summary>
     public Guid SaleId { get; set; }
 
     /// <summary>
-    /// Gets the product ID.
+    /// Gets or sets the product ID.
     /// </summary>
     public Guid ProductId { get; set; }
 
     /// <summary>
-    /// Get the product name.
+    /// Gets or sets the product name.
     /// </summary>
     public string ProductName { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the product quantity.
+    /// Gets or sets the product quantity.
     /// </summary>
     public int Quantity { get; set; }
 
     /// <summary>
-    /// Gets the product unit price.
+    /// Gets or sets the product unit price.
     /// </summary>
     public decimal UnitPrice { get; set; }
 
     /// <summary>
-    /// Gets the total amount of the sale item.
+    /// Gets the date and time when the item was created.
     /// </summary>
-    public decimal TotalAmount { get; private set; }
+    public DateTime CreatedAt { get; set; }
+
+    /// <summary>
+    /// Gets the date and time of the last update to the item's information.
+    /// </summary>
+    public DateTime? UpdatedAt { get; set; }
 
     /// <summary>
     /// Performs validation of the sale item entity using the SaleItemValidator rules.
