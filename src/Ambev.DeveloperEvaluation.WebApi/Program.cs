@@ -60,7 +60,11 @@ public class Program
             {
                 app.ApplyDatabaseMigrations();
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(options =>
+                {
+                    options.ConfigObject.TryItOutEnabled = true;
+                    options.ConfigObject.DisplayRequestDuration = true;
+                });
             }
 
             app.UseHttpsRedirection();
