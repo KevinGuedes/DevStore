@@ -41,8 +41,7 @@ public class GetUserHandler : IRequestHandler<GetUserCommand, GetUserResult>
         if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors);
 
-        var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
-        if (user == null)
+        var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken) ?? 
             throw new KeyNotFoundException($"User with ID {request.Id} not found");
 
         return _mapper.Map<GetUserResult>(user);
