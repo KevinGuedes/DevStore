@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Validation;
 using Ambev.DeveloperEvaluation.Domain.Common;
+using Ambev.DeveloperEvaluation.Domain.Strategies.Discount;
 using Ambev.DeveloperEvaluation.Domain.Validation;
 
 namespace Ambev.DeveloperEvaluation.Domain.Entities;
@@ -36,6 +37,11 @@ public class SaleItem : BaseEntity
     public decimal UnitPrice { get; set; }
 
     /// <summary>
+    /// Gets or sets the discount.
+    /// </summary>
+    public decimal Discount { get; set; }
+
+    /// <summary>
     /// Gets the date and time when the item was created.
     /// </summary>
     public DateTime CreatedAt { get; set; }
@@ -44,6 +50,16 @@ public class SaleItem : BaseEntity
     /// Gets the date and time of the last update to the item's information.
     /// </summary>
     public DateTime? UpdatedAt { get; set; }
+
+    /// <summary>
+    /// Gets the total amount of the item.
+    /// </summary>
+    public decimal TotalAmountBeforeDiscount => Quantity * UnitPrice;
+
+    /// <summary>
+    /// Gets the total amount of the item with the discount applied.
+    /// </summary>
+    public decimal TotalAmountWithDiscount => Quantity * UnitPrice * (1 - Discount);
 
     /// <summary>
     /// Performs validation of the sale item entity using the SaleItemValidator rules.
@@ -68,5 +84,14 @@ public class SaleItem : BaseEntity
             IsValid = result.IsValid,
             Errors = result.Errors.Select(o => (ValidationErrorDetail)o)
         };
+    }
+
+    /// <summary>
+    /// Applies a discount to the sale item.
+    /// </summary>
+    /// <param name="discountStrategy">The discount strategy</param>
+    public void ApplyDiscount(IDiscountStrategy discountStrategy)
+    {
+        Discount = discountStrategy.GetDiscountRate();
     }
 }

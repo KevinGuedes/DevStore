@@ -32,6 +32,8 @@ public class CreateSaleRequestValidator : AbstractValidator<CreateSaleRequest>
             .NotEmpty().WithMessage("Customer name must not be empty.")
             .Length(3, 50).WithMessage("Customer name must be at least 3 characters long and cannot be longer than 50 characters.");
 
+        RuleFor(sale => sale.CustomerEmail).SetValidator(new EmailValidator());
+
         RuleFor(sale => sale.BranchId)
             .MustBeAValidId()
             .WithMessage("Sale must have a valid Branch ID");

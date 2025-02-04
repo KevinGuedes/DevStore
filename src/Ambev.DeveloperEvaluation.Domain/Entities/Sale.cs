@@ -66,6 +66,23 @@ public class Sale : BaseEntity
     public DateTime? UpdatedAt { get; set; }
 
     /// <summary>
+    /// Gets the total amount of the sale before applying discounts.
+    /// </summary>
+    public decimal TotalSaleAmountBeforeDiscount
+        => Items.Sum(item => item.TotalAmountBeforeDiscount);
+
+    /// <summary>
+    /// Gets the total amount of the sale after applying discounts.
+    /// </summary>
+    public decimal TotalSaleAmountWithDiscount
+        => Items.Sum(item => item.TotalAmountWithDiscount);
+
+    /// <summary>
+    /// Gets the total number of items in the sale.
+    /// </summary>
+    public decimal ItemsCount => Items.Count;
+
+    /// <summary>
     /// Initializes a new instance of the Sale class.
     /// </summary>
     public Sale()
@@ -78,6 +95,7 @@ public class Sale : BaseEntity
     /// Generates a unique sale number.
     /// </summary>
     /// <returns>A unique sale number</returns>
+    // random number just for the challenge
     private static long GenerateSaleNumber()
         => new Random().NextInt64();
 

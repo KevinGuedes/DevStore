@@ -11,6 +11,11 @@ public class CreateSaleResponse
     public Guid Id { get; set; }
 
     /// <summary>
+    /// Gets or sets the sale number.
+    /// </summary>
+    public long Number { get; set; }
+
+    /// <summary>
     /// Gets or sets the date and time when the sale occurred.
     /// </summary>
     public DateTime Date { get; set; }
@@ -19,6 +24,11 @@ public class CreateSaleResponse
     /// Gets or sets the ID of the customer making the sale.
     /// </summary>
     public Guid CustomerId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the email of the customer making the sale.
+    /// </summary>
+    public string CustomerEmail { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the name of the customer making the sale.
@@ -39,6 +49,16 @@ public class CreateSaleResponse
     /// Gets or sets the list of items included in the sale.
     /// </summary>
     public List<SaleItemResponse> Items { get; set; } = [];
+
+    /// <summary>
+    /// Gets or sets the total amount of the sale before applying discounts.
+    /// </summary>
+    public decimal TotalSaleAmountBeforeDiscount { get; set; }
+
+    /// <summary>
+    /// Gets or sets the total amount of the sale after applying discounts.
+    /// </summary>
+    public decimal TotalSaleAmountWithDiscount { get; set; }
 }
 
 /// <summary>
@@ -70,4 +90,19 @@ public class SaleItemResponse
     /// Gets or sets the unit price of the product being sold.
     /// </summary>
     public decimal UnitPrice { get; set; }
+
+    /// <summary>
+    /// Gets or sets the discount.
+    /// </summary>
+    public decimal Discount { get; set; }
+
+    /// <summary>
+    /// Gets the total amount of the item before applying discounts.
+    /// </summary>
+    public decimal TotalAmountBeforeDiscount { get; set; }
+
+    /// <summary>
+    /// Gets the total amount of the item after applying discounts.
+    /// </summary>
+    public decimal TotalAmountWithDiscount { get; set; }
 }

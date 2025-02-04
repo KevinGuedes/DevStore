@@ -21,6 +21,11 @@ public class CreateSaleRequest
     public string CustomerName { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the email of the customer making the sale.
+    /// </summary>
+    public string CustomerEmail { get; set; } = string.Empty;
+
+    /// <summary>
     /// Gets or sets the ID of the branch where the sale occurred.
     /// </summary>
     public Guid BranchId { get; set; }

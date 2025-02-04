@@ -17,6 +17,7 @@ public class SaleItemConfiguration : IEntityTypeConfiguration<SaleItem>
         builder.Property(saleItem => saleItem.ProductId).IsRequired().HasColumnType("uuid");
         builder.Property(saleItem => saleItem.ProductName).IsRequired().HasMaxLength(50);
         builder.Property(saleItem => saleItem.Quantity).IsRequired();
+        builder.Property(saleItem => saleItem.Discount).IsRequired();
         builder.Property(saleItem => saleItem.UnitPrice).IsRequired().HasColumnType("money");
         builder.Property(sale => sale.CreatedAt).IsRequired();
     }
