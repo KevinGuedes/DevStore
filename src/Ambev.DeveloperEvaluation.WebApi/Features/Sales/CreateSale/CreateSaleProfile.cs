@@ -1,7 +1,7 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
 using AutoMapper;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSales;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale;
 
 /// <summary>
 /// Represents a profile for mapping objects related to CreateSale feature.
