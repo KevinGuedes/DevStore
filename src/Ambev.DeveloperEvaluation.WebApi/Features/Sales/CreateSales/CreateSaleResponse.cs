@@ -48,7 +48,7 @@ public class CreateSaleResponse
     /// <summary>
     /// Gets or sets the list of items included in the sale.
     /// </summary>
-    public List<SaleItemResponse> Items { get; set; } = [];
+    public List<CreateSaleItemResponse> Items { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the total amount of the sale before applying discounts.
@@ -64,7 +64,7 @@ public class CreateSaleResponse
 /// <summary>
 /// API response model items within a sale.
 /// </summary>
-public class SaleItemResponse
+public class CreateSaleItemResponse
 {
     /// <summary>
     /// Gets or sets the unique identifier of the sale item.

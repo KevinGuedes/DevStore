@@ -44,17 +44,17 @@ public class CreateSaleValidator : AbstractValidator<CreateSaleCommand>
         RuleFor(sale => sale.Items)
             .NotEmpty()
             .WithMessage("At least one sale item is required.")
-            .ForEach(item => item.SetValidator(new SaleItemCommandValidator()));
+            .ForEach(item => item.SetValidator(new CreateSaleItemCommandValidator()));
     }
 }
 
 /// <summary>
-/// Validator for <see cref="SaleItemCommand"/> that defines validation rules items whitin a sale.
+/// Validator for <see cref="CreateSaleItemCommand"/> that defines validation rules items whitin a sale.
 /// </summary>
-public class SaleItemCommandValidator : AbstractValidator<SaleItemCommand>
+public class CreateSaleItemCommandValidator : AbstractValidator<CreateSaleItemCommand>
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="SaleItemCommandValidator"> with defined validation rules.
+    /// Initializes a new instance of the <see cref="CreateSaleItemCommandValidator"> with defined validation rules.
     /// </summary>
     /// <remarks>
     /// <listheader>The validation includes checking:</listheader>
@@ -63,7 +63,7 @@ public class SaleItemCommandValidator : AbstractValidator<SaleItemCommand>
     /// <list type="bullet">Quantity: Min 1 and max 20</list>
     /// <list type="bullet">UnitPrice: Must be greater than 0</list>
     /// </remarks>
-    public SaleItemCommandValidator()
+    public CreateSaleItemCommandValidator()
     {
         RuleFor(item => item.ProductId)
             .MustBeAValidId().WithMessage("Sale item must have a valid Product ID");

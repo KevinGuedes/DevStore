@@ -38,13 +38,13 @@ public class CreateSaleRequest
     /// <summary>
     /// Gets or sets the list of items included in the sale.
     /// </summary>
-    public List<SaleItemRequest> Items { get; set; } = [];
+    public List<CreateSaleItemRequest> Items { get; set; } = [];
 }
 
 /// <summary>
 /// Represents an item in a sale, including product information, quantity, and price.
 /// </summary>
-public class SaleItemRequest
+public class CreateSaleItemRequest
 {
     /// <summary>
     /// Gets or sets the unique identifier of the product being sold.

@@ -48,7 +48,7 @@ public class CreateSaleResult
     /// <summary>
     /// Gets or sets the list of items included in the sale.
     /// </summary>
-    public List<SaleItemResult> Items { get; set; } = [];
+    public List<CreateSaleItemResult> Items { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the total amount of the sale before applying discounts.
@@ -64,7 +64,7 @@ public class CreateSaleResult
 /// <summary>
 /// Represents an item within the successfully created sale.
 /// </summary>
-public class SaleItemResult
+public class CreateSaleItemResult
 {
     /// <summary>
     /// Gets or sets the unique identifier of the sale item.

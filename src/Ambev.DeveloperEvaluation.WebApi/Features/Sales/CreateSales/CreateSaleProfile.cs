@@ -3,6 +3,9 @@ using AutoMapper;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSales;
 
+/// <summary>
+/// Represents a profile for mapping objects related to CreateSale feature.
+/// </summary>
 public class CreateSaleProfile : Profile
 {
     /// <summary>
@@ -10,10 +13,9 @@ public class CreateSaleProfile : Profile
     /// </summary>
     public CreateSaleProfile()
     {
-        CreateMap<SaleItemRequest, SaleItemCommand>();
+        CreateMap<CreateSaleItemRequest, CreateSaleItemCommand>();
         CreateMap<CreateSaleRequest, CreateSaleCommand>();
-
-        CreateMap<SaleItemResult, SaleItemResponse>();
+        CreateMap<CreateSaleItemResult, CreateSaleItemResponse>();
         CreateMap<CreateSaleResult, CreateSaleResponse>();
     }
 }
