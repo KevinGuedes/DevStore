@@ -32,4 +32,16 @@ public class SaleRepository : ISaleRepository
         await _context.SaveChangesAsync(cancellationToken);
         return sale;
     }
+
+    /// <summary>
+    /// Retrieves a sale by its unique identifier
+    /// </summary>
+    /// <param name="id">The unique identifier of the sale</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The sale if found, null otherwise</returns>
+    public Task<Sale?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        => _context.Sales
+            .AsNoTracking()
+            .Include(sale => sale.Items)
+            .FirstOrDefaultAsync(sale => sale.Id == id, cancellationToken);
 }
