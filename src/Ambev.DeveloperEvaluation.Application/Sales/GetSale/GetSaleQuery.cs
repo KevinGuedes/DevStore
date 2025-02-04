@@ -20,4 +20,13 @@ public class GetSaleQuery : IRequest<GetSaleResult>
     /// Gets or set the sale ID.
     /// </summary>
     public Guid Id { get; set; }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="GetSaleQuery">
+    /// </summary>
+    /// <param name="id">The ID of the sale to retrieve</param>
+    public GetSaleQuery(Guid id)
+    {
+        Id = id;
+    }
 }
