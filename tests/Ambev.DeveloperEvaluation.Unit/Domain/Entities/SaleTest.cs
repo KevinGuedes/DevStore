@@ -1,11 +1,13 @@
-﻿using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
+﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using FluentAssertions;
 using Xunit;
+
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities;
 
 /// <summary>
-/// Contains unit tests for the Sale entity class.
+/// Contains unit tests for the <see cref="Sale"> entity class.
 /// Tests cover status changes and validation scenarios.
 /// </summary>
 public class SaleTest
@@ -17,7 +19,7 @@ public class SaleTest
     public void Given_ValidSaleItemData_When_Validated_Then_ShouldReturnValid()
     {
         // Arrange
-        var sale = SaleTestData.GenerateInvalidSale();
+        var sale = SaleTestData.GenerateValidSale();
 
         // Act
         var result = sale.Validate();

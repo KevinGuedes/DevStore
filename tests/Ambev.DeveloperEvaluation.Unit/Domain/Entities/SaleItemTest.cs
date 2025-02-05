@@ -1,4 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Strategies.Discount;
+using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using FluentAssertions;
 using Xunit;
@@ -6,7 +7,7 @@ using Xunit;
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities;
 
 /// <summary>
-/// Contains unit tests for the SaleItem entity class.
+/// Contains unit tests for the <see cref="SaleItem"/> entity class.
 /// Tests cover status changes and validation scenarios.
 /// </summary>
 public class SaleItemTest
@@ -18,10 +19,10 @@ public class SaleItemTest
     public void Given_ValidSaleItemData_When_Validated_Then_ShouldReturnValid()
     {
         // Arrange
-        var saleItems = SaleItemTestData.GenerateValidSaleItem();
+        var saleItem = SaleItemTestData.GenerateValidSaleItem().First();
 
         // Act
-        var result = saleItems[0].Validate();
+        var result = saleItem.Validate();
 
         // Assert
         result.IsValid.Should().BeTrue();
@@ -34,10 +35,10 @@ public class SaleItemTest
     public void Given_InvalidSaleItemData_When_Validated_Then_ShouldReturnInvalid()
     {
         // Arrange
-        var saleItems = SaleItemTestData.GenerateInvalidSaleItem();
+        var saleItem = SaleItemTestData.GenerateInvalidSaleItem().First();
 
         // Act
-        var result = saleItems[0].Validate();
+        var result = saleItem.Validate();
 
         // Assert
         result.IsValid.Should().BeFalse();
@@ -50,9 +51,8 @@ public class SaleItemTest
     public void Given_ADiscountStrategy_When_ApplyingDiscount_Then_ShouldReturnDiscountedPrice()
     {
         // Arrange
-        var saleItems = SaleItemTestData.GenerateValidSaleItem();
+        var saleItem = SaleItemTestData.GenerateValidSaleItem().First();
         var discountStrategy = new FourItemsPlusDiscountStrategy();
-        var saleItem = saleItems[0];
         saleItem.Quantity = 5;
 
         // Act
