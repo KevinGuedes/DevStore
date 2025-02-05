@@ -1,5 +1,4 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
-using Ambev.DeveloperEvaluation.Domain.Enums;
 using Bogus;
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
@@ -12,10 +11,11 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 public static class SaleTestData
 {
     /// <summary>
-    /// Configures the Faker to generate valid Sales entities.
+    /// Generates valid <see cref="Sale"/> entities.
     /// </summary>
     /// <returns>A valid sale</returns>
     public static Sale GenerateValidSale(int saleItemsQuantity = 1) => new Faker<Sale>()
+        .RuleFor(sale => sale.Id, f => f.Random.Guid())
         .RuleFor(sale => sale.Number, f => f.Random.Number(1, 100))
         .RuleFor(saleItem => saleItem.Date, f => f.Date.Past())
         .RuleFor(sale => sale.CustomerId, f => f.Random.Guid())
@@ -27,7 +27,7 @@ public static class SaleTestData
         .RuleFor(saleItem => saleItem.CreatedAt, f => f.Date.Past());
 
     /// <summary>
-    /// Generates an invalid Sale entity with randomized data.
+    /// Generates an invalid <see cref="Sale"> entity with randomized data.
     /// </summary>
     /// <returns>A invalid sale</returns>
     public static Sale GenerateInvalidSale() => new Faker<Sale>()

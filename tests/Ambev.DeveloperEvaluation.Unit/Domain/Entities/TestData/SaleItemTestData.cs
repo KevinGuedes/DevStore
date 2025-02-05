@@ -11,7 +11,7 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 public static class SaleItemTestData
 {
     /// <summary>
-    /// Generates a valid SaleItem entity with randomized data.
+    /// Generates a valid <see cref="SaleItem"/> entity with randomized data.
     /// </summary>
     /// <param name="quantity">The amount of items to be generated</param>
     /// <returns>A list of valid items</returns>
@@ -25,7 +25,7 @@ public static class SaleItemTestData
         .Generate(quantity);
 
     /// <summary>
-    /// Generates an invalid SaleItem entity with randomized data.
+    /// Generates an invalid <see cref="SaleItem"/> entity with randomized data.
     /// </summary>
     /// <param name="quantity">The amount of items to be generated</param>
     /// <returns>A list of invalid items</returns>
