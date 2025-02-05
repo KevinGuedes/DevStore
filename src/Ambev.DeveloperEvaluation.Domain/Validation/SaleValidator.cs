@@ -12,7 +12,8 @@ public class SaleValidator : AbstractValidator<Sale>
             .NotEqual(0).WithMessage("Sale Number must not be 0.");
 
         RuleFor(sale => sale.Date)
-            .NotEqual(DateTime.MinValue).WithMessage("Sale Date is required.");
+            .NotEmpty().WithMessage("Sale date is required.")
+            .LessThanOrEqualTo(DateTime.UtcNow).WithMessage("Sale date cannot be in the future.");
 
         RuleFor(sale => sale.CustomerId)
             .MustBeAValidId().WithMessage("Sale must have a valid Customer ID");
