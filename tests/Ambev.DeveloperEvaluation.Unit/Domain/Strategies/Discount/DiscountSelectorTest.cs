@@ -23,7 +23,7 @@ public class DiscountSelectorTest
 
         // Act
         var discountStrategy = DiscountSelector.GetDiscountStrategy(saleItem);
-        
+
         // Assert
         discountStrategy.Should().BeOfType<NoDiscountStrategy>();
     }

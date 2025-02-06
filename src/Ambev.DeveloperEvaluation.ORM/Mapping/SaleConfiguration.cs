@@ -1,7 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 
 namespace Ambev.DeveloperEvaluation.ORM.Mapping;
 
@@ -16,9 +15,9 @@ public class SaleConfiguration : IEntityTypeConfiguration<Sale>
 
         builder.HasIndex(sale => sale.Number).IsUnique();
         builder.Property(sale => sale.Date).IsRequired();
-        builder.Property(sale => sale.CustomerName).HasMaxLength(100).IsRequired();
+        builder.Property(sale => sale.CustomerName).HasMaxLength(50).IsRequired();
         builder.Property(sale => sale.CustomerEmail).IsRequired();
-        builder.Property(sale => sale.BranchName).HasMaxLength(100).IsRequired();
+        builder.Property(sale => sale.BranchName).IsRequired();
         //We should have a proper relation for Branch and Sales, but since this is not in the scope of the challenge, i'm just doing basic mapping
         builder.Property(sale => sale.BranchId).IsRequired();
         builder.Property(sale => sale.IsCancelled).IsRequired();
