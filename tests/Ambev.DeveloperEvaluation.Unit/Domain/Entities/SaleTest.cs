@@ -3,7 +3,6 @@ using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using FluentAssertions;
 using Xunit;
 
-
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities;
 
 /// <summary>
