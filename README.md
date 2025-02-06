@@ -21,3 +21,16 @@ If more time were available, the following enhancements would be implemented:
 * Add more test cases to improve coverage and reliability.
 * Test all endpoints via integration tests to ensure end-to-end correctness.
 * Integrate RabbitMQ for event-driven communication and message handling.
+
+## To Run The Project
+1. Clone the repo:
+```sh
+git https://github.com/KevinGuedes/DevStore.git
+```
+
+2. Access the folder and:
+```sh
+docker compose up -d
+```
+
+3. The API will be available in https://localhost:8081/swagger/index.html
