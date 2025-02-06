@@ -32,4 +32,5 @@ git clone https://github.com/KevinGuedes/DevStore.git
 docker compose up -d
 ```
 Observation: Migrations will be automatically applied.
+
 3. Access Swagger in the following link: https://localhost:8081/swagger/index.html  
