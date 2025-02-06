@@ -59,6 +59,11 @@ public class CreateSaleResult
     /// Gets or sets the total amount of the sale after applying discounts.
     /// </summary>
     public decimal TotalSaleAmountWithDiscount { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the sale is cancelled or not cancelled.
+    /// </summary>
+    public bool IsCancelled { get; set; }
 }
 
 /// <summary>

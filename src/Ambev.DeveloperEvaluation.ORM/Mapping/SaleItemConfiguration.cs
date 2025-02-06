@@ -15,7 +15,7 @@ public class SaleItemConfiguration : IEntityTypeConfiguration<SaleItem>
 
         // We would need a proper relation between Sale and Product, but since this is not in the scope of the challenge, i'm just doing basic mapping 
         builder.Property(saleItem => saleItem.ProductId).IsRequired().HasColumnType("uuid");
-        builder.Property(saleItem => saleItem.ProductName).IsRequired().HasMaxLength(50);
+        builder.Property(saleItem => saleItem.ProductName).IsRequired().HasMaxLength(100);
         builder.Property(saleItem => saleItem.Quantity).IsRequired();
         builder.Property(saleItem => saleItem.Discount).IsRequired();
         builder.Property(saleItem => saleItem.UnitPrice).IsRequired().HasColumnType("money");
