@@ -21,3 +21,14 @@ If more time were available, the following enhancements would be implemented:
 * Add more test cases to improve coverage and reliability.
 * Test all endpoints via integration tests to ensure end-to-end correctness.
 * Integrate RabbitMQ for event-driven communication and message handling.
+
+## How To Run 
+1. Clone the repo:
+```sh
+git clone https://github.com/KevinGuedes/DevStore.git
+```
+2. Run the following command on the project folder:
+```sh
+docker compose up -d
+```
+Observation: Migrations will be automatically applied.
