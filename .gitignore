@@ -362,11 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-# Remove appsettings
-appsettings.json
-appsettings.Development.json
-appsettings.Staging.json
-appsettings.Production.json
-
 # Verify Tests
 *.received.*
