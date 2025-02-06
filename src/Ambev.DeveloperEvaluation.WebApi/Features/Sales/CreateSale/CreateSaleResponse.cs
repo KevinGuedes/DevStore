@@ -59,6 +59,11 @@ public class CreateSaleResponse
     /// Gets or sets the total amount of the sale after applying discounts.
     /// </summary>
     public decimal TotalSaleAmountWithDiscount { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the item is cancelled or not cancelled.
+    /// </summary>
+    public bool IsCancelled { get; set; }
 }
 
 /// <summary>
@@ -97,12 +102,12 @@ public class CreateSaleItemResponse
     public decimal Discount { get; set; }
 
     /// <summary>
-    /// Gets the total amount of the item before applying discounts.
+    /// Gets or sets the total amount of the item before applying discounts.
     /// </summary>
     public decimal TotalAmountBeforeDiscount { get; set; }
 
     /// <summary>
-    /// Gets the total amount of the item after applying discounts.
+    /// Gets or sets the total amount of the item after applying discounts.
     /// </summary>
     public decimal TotalAmountWithDiscount { get; set; }
 }

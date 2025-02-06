@@ -36,7 +36,7 @@ public class CreateSaleHandler : IRequestHandler<CreateSaleCommand, CreateSaleRe
     {
         var validator = new CreateSaleValidator();
         var validationResult = await validator.ValidateAsync(command, cancellationToken);
-        
+
         if (!validationResult.IsValid)
         {
             throw new ValidationException(validationResult.Errors);

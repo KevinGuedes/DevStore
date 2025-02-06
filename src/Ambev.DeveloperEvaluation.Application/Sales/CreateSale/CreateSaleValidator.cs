@@ -15,7 +15,7 @@ public class CreateSaleValidator : AbstractValidator<CreateSaleCommand>
     /// <listheader>The validation includes checking:</listheader>
     /// <list type="bullet">SaleDate: Must not be in the future</list>
     /// <list type="bullet">CustomerId and BranchId: Should both be valid</list>
-    /// <list type="bullet">CustomerName and BranchName: Must both be within 3 to 50 characters (inclusive)</list>
+    /// <list type="bullet">CustomerName and BranchName: Must both be within 3 to 100 characters (inclusive)</list>
     /// <list type="bullet">Items: Must not be empty and each item must be validated by <see cref="SaleItemRequestValidator"/></list>
     /// </remarks>
     public CreateSaleValidator()
@@ -29,7 +29,7 @@ public class CreateSaleValidator : AbstractValidator<CreateSaleCommand>
 
         RuleFor(sale => sale.CustomerName)
             .NotEmpty().WithMessage("Customer name must not be empty.")
-            .Length(3, 50).WithMessage("Customer name must be at least 3 characters long and cannot be longer than 50 characters.");
+            .Length(3, 100).WithMessage("Customer name must be at least 3 characters long and cannot be longer than 100 characters.");
 
         RuleFor(sale => sale.CustomerEmail).SetValidator(new EmailValidator());
 
@@ -39,7 +39,7 @@ public class CreateSaleValidator : AbstractValidator<CreateSaleCommand>
 
         RuleFor(sale => sale.BranchName)
             .NotEmpty().WithMessage("Branch name must not be empty.")
-            .Length(3, 50).WithMessage("Branch name must be at least 3 characters long and cannot be longer than 50 characters.");
+            .Length(3, 100).WithMessage("Branch name must be at least 3 characters long and cannot be longer than 100 characters.");
 
         RuleFor(sale => sale.Items)
             .NotEmpty()
@@ -59,7 +59,7 @@ public class CreateSaleItemCommandValidator : AbstractValidator<CreateSaleItemCo
     /// <remarks>
     /// <listheader>The validation includes checking:</listheader>
     /// <list type="bullet">ProductId: Should be valid</list>
-    /// <list type="bullet">ProductName: Must be within 3 to 50 characters (inclusive)</list>
+    /// <list type="bullet">ProductName: Must be within 3 to 100 characters (inclusive)</list>
     /// <list type="bullet">Quantity: Min 1 and max 20</list>
     /// <list type="bullet">UnitPrice: Must be greater than 0</list>
     /// </remarks>
@@ -70,7 +70,7 @@ public class CreateSaleItemCommandValidator : AbstractValidator<CreateSaleItemCo
 
         RuleFor(item => item.ProductName)
             .NotEmpty().WithMessage("Product name must not be empty.")
-            .Length(3, 50).WithMessage("Product name must be at least 3 characters long and cannot be longer than 50 characters.");
+            .Length(3, 100).WithMessage("Product name must be at least 3 characters long and cannot be longer than 100 characters.");
 
         RuleFor(saleItem => saleItem.Quantity)
             .InclusiveBetween(1, 20).WithMessage("Quantity must be at least 1 and cannot be higher than 20.");

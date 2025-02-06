@@ -1,0 +1,38 @@
+﻿{
+  "data": {
+    "id": "Guid_1",
+    "number": 0,
+    "date": "DateTimeOffset_1",
+    "customerId": "Guid_2",
+    "customerEmail": "Georgiana79@gmail.com",
+    "customerName": "Easton_Morissette94",
+    "branchId": "Guid_3",
+    "branchName": "Schoen, Stokes and Berge",
+    "items": [
+      {
+        "id": "Guid_4",
+        "productId": "Guid_5",
+        "productName": "Licensed Concrete Computer",
+        "quantity": 4,
+        "unitPrice": 22.02,
+        "discount": 0,
+        "totalAmountBeforeDiscount": 88.08,
+        "totalAmountWithDiscount": 88.08
+      },
+      {
+        "id": "Guid_2",
+        "productId": "Guid_6",
+        "productName": "Handcrafted Steel Chips",
+        "quantity": 17,
+        "unitPrice": 43.08,
+        "discount": 0,
+        "totalAmountBeforeDiscount": 732.36,
+        "totalAmountWithDiscount": 732.36
+      }
+    ],
+    "totalSaleAmountBeforeDiscount": 820.44,
+    "totalSaleAmountWithDiscount": 820.44
+  },
+  "success": true,
+  "message": ""
+}

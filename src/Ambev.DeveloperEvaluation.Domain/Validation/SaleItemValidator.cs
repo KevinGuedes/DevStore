@@ -15,7 +15,7 @@ public class SaleItemValidator : AbstractValidator<SaleItem>
 
         RuleFor(sale => sale.ProductName)
             .NotEmpty().WithMessage("Product name must not be empty.")
-            .Length(3, 50).WithMessage("Product name must be at least 3 characters long and cannot be longer than 50 characters.");
+            .Length(3, 100).WithMessage("Product name must be at least 3 characters long and cannot be longer than 100 characters.");
 
         RuleFor(saleItem => saleItem.Quantity)
             .InclusiveBetween(1, 20).WithMessage("Quantity must be at least 1 and cannot be higher than 20.");

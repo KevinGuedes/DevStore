@@ -21,7 +21,7 @@ public static class DiscountSelector
             return new TenToTwentyItemsDiscountStrategy();
 
         if (saleItem.Quantity > FOUR_ITEMS_DISCOUNT_THRESHOLD)
-            return new FourItemsDiscountStrategy();
+            return new FourItemsPlusDiscountStrategy();
 
         return new NoDiscountStrategy();
     }
