@@ -5,6 +5,7 @@
 * Integration Testing leveraging TestContainers to spin up a temporary PostgreSQL database within a Docker container.
 * MediatR for request handling, ensuring separation of concerns and maintainability.
 * Discount Calculation implemented using the Strategy behavioral pattern for flexible and scalable business rules.
+* Verify Tests to test the response payload correctness, going beyond checking just sucessful status code for integration tests
 
 ## Design Patterns & Architecture
 * Mediator Pattern (MediatR)

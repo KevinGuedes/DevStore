@@ -43,6 +43,23 @@ public sealed class SalesTests(ApplicationFactory applicationFactory)
     }
 
     /// <summary>
+    /// Tests happy path for the Create Sale endpoint.
+    /// </summary>
+    [Fact]
+    public async Task CreateSaleEndpoint_ShouldReturnBadRequest_WhenInvalidPayloadIsSent()
+    {
+        var request = SaleTestData.CreateValidSaleRequest();
+        var user = UserTestData.GetDefaultUser();
+        request.CustomerId = user.Id;
+        request.CustomerName = user.Username;
+        request.Items[0].Quantity = 21; //to make the payload invalid
+
+        var (response, _) = await PostAsync<CreateSaleRequest, ApiResponseWithData<CreateSaleResponse>>(request);
+       
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    /// <summary>
     /// Tests happy path for the Get Sale endpoint.
     /// </summary>
     [Fact]
@@ -71,7 +88,7 @@ public sealed class SalesTests(ApplicationFactory applicationFactory)
     /// Tests bad request response for Get Sale feature.
     /// </summary>
     [Fact]
-    public async Task GetSaleEndpoint_ShouldReturnBadRequest_WhenInvalidPAramsAreSent()
+    public async Task GetSaleEndpoint_ShouldReturnBadRequest_WhenInvalidParamsAreSent()
     {
         var (response, _) = await GetAsync<ApiResponseWithData<GetSaleResponse>>(Guid.Empty.ToString());
 

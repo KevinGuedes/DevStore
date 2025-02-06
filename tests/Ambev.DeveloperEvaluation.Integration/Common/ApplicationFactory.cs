@@ -69,7 +69,7 @@ public sealed class ApplicationFactory : WebApplicationFactory<Program>, IAsyncL
     {
         var user = UserTestData.GetDefaultUser();
         dbContext.Users.Add(user);
-        dbContext.SaveChanges();
+        dbContext.SaveChanges(); // to ensure FK correcteness for the Sale entity
 
         var sale = SaleTestData.GetDefaultSale();
         dbContext.Sales.Add(sale);
