@@ -1,5 +1,4 @@
 ﻿using Ambev.DeveloperEvaluation.Integration.Common;
-using Xunit;
 
 namespace Ambev.DeveloperEvaluation.Integration.SharedContexts;
 

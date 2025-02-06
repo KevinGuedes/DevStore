@@ -8,7 +8,6 @@ using Serilog.Exceptions;
 using Serilog.Exceptions.Core;
 using Serilog.Exceptions.EntityFrameworkCore.Destructurers;
 using Serilog.Sinks.SystemConsole.Themes;
-using Serilog.Templates;
 using System.Diagnostics;
 
 namespace Ambev.DeveloperEvaluation.Common.Logging;
@@ -31,7 +30,8 @@ public static class LoggingExtension
     static readonly Func<LogEvent, bool> _filterPredicate = exclusionPredicate =>
     {
 
-        if (exclusionPredicate.Level != LogEventLevel.Information) return true;
+        if (exclusionPredicate.Level != LogEventLevel.Information)
+            return true;
 
         exclusionPredicate.Properties.TryGetValue("StatusCode", out var statusCode);
         exclusionPredicate.Properties.TryGetValue("Path", out var path);

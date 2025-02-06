@@ -1,5 +1,5 @@
-﻿using Ambev.DeveloperEvaluation.Domain.Strategies.Discount;
-using Ambev.DeveloperEvaluation.Domain.Entities;
+﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Domain.Strategies.Discount;
 using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using FluentAssertions;
 using Xunit;
